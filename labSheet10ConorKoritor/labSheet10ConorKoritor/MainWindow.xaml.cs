@@ -22,10 +22,12 @@ namespace labSheet10ConorKoritor
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        //Initialize Collections
+        
         private ObservableCollection<Bike> bikes = new ObservableCollection<Bike>();
         private ObservableCollection<Bike> cart = new ObservableCollection<Bike>();
         private ObservableCollection<Bike> filtered = new ObservableCollection<Bike>();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -54,10 +56,14 @@ namespace labSheet10ConorKoritor
             bikes.Add(bike5);
             bikes.Add(bike6);
 
-            
+
             //Display Bikes
             lbxProduct.ItemsSource = bikes;
 
+            //Adding values to combo box
+            string[] bikeTypes = { "All", "Male", "Female" };
+            cbxBikeType.ItemsSource = bikeTypes;
+            cbxBikeType.SelectedIndex = 0;
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
@@ -108,6 +114,35 @@ namespace labSheet10ConorKoritor
                 totalCost += b.Price;
                 tblkTotal.Text = $"{totalCost:C}";
 
+            }
+
+        }
+
+        private void cbxBikeType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Clear Everything already in filtered to avoid duplicates
+            filtered.Clear();
+
+            //Check if selected index is not  "All"
+            if(cbxBikeType.SelectedIndex != 0)
+            {
+                //Run Through all bikes to check for match between selected index and bikes.Gender
+                foreach(Bike b in bikes)
+                {
+                    //If there is a match add it to filtered list
+                    if (b.Gender.Contains(cbxBikeType.SelectedItem.ToString()))
+                    {
+                        filtered.Add(b);
+                    }
+                }
+
+                //make filtered list the new display
+                lbxProduct.ItemsSource = filtered;
+            }
+            else
+            {
+                //if selected index equals "All" make bikes the display
+                lbxProduct.ItemsSource = bikes;
             }
 
         }

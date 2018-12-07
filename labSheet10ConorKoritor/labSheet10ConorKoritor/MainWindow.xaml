@@ -18,10 +18,8 @@
         <Label x:Name="label" Content="Products" HorizontalAlignment="Left" Margin="72,44,0,0" VerticalAlignment="Top" Height="35" Width="143" Foreground="#FFF70909" FontSize="22" FontWeight="Bold"/>
         <Label x:Name="label1" Content="Cart" Grid.Column="1" HorizontalAlignment="Left" Margin="316,44,0,0" VerticalAlignment="Top" Height="35" Width="56" Foreground="Red" FontSize="20" FontWeight="Bold"/>
         <Label x:Name="label2" Content="Bike Type" HorizontalAlignment="Left" Margin="95,84,0,0" VerticalAlignment="Top" Width="66" Foreground="Red"/>
-        <ComboBox x:Name="cbxType" HorizontalAlignment="Left" Margin="166,88,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem Content="All" HorizontalAlignment="Left" Width="118"/>
-            <ComboBoxItem Content="Male" HorizontalAlignment="Left" Width="118"/>
-            <ComboBoxItem Content="Female" HorizontalAlignment="Left" Width="118"/>
+        <ComboBox x:Name="cbxBikeType" HorizontalAlignment="Left" Margin="166,88,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbxBikeType_SelectionChanged">
+         
         </ComboBox>
         <Label x:Name="label3" Content="Total Cost:" Grid.Column="1" HorizontalAlignment="Left" Margin="232,344,0,0" VerticalAlignment="Top" Width="74" Foreground="Red" FontWeight="Bold"/>
         <TextBlock x:Name="tblkTotal" Grid.Column="1" HorizontalAlignment="Left" Margin="316,349,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Red"/>
